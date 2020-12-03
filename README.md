@@ -2,7 +2,7 @@
 
 This projects implements an item-based recommender using HDBSCAN clustering. Product data was gotten from [Jumia](https://www.jumia.com.ng) was used to fit (train) the cluster model.
 
-Details on setup, usage and implementation are given in subsequent sections.
+Details on setup, usage and limitations are given in subsequent sections.
 HDBSCAN stands for Hierarchical Density-Based Spatial Clustering of Applications with Noise.
 
 ## Setup
@@ -99,7 +99,7 @@ There will also be an error message if the URL is not a valid Jumia link as seen
 }
 ```
 ## Limitations
-The trained relied on vectors from the names and categories
+The training of the model relied on vectors from the names and categories
 of the products. The dimensions of the vectors were then reduced drastically in order to save training time and memory.
 In addition, the data mined was relatively noisy with inconsistencies in product classifications and naming conventions.\
 These factors led to a relatively high amount of product vector points classified as noise or outlier values.
