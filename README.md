@@ -74,7 +74,6 @@ http://localhost:5000/api/recommend?link=https://www.jumia.com.ng/style-addictio
         "product_rating": "3.7",
         "product_type": "Dresses"
     },
-    ...
     {
         "id": 6015,
         "image_link": "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/74/281415/1.jpg?9417",
