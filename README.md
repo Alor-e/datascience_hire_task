@@ -1,6 +1,6 @@
 # An Item Based Recommender (for [Jumia](https://www.jumia.com.ng) links)
 
-This projects implements an item-based recommender using HDBSCAN clustering. Product data was gotten from [Jumia](https://www.jumia.com.ng) was used to fit (train) the cluster model.
+This projects implements an item-based recommender using HDBSCAN clustering. Product data, gotten from [Jumia](https://www.jumia.com.ng) was used to fit (train) the cluster model.
 
 Details on setup, usage and limitations are given in subsequent sections.
 HDBSCAN stands for Hierarchical Density-Based Spatial Clustering of Applications with Noise.
