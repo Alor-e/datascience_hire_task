@@ -1,8 +1,8 @@
 # An Item Based Recommender (for [Jumia](https://www.jumia.com.ng) links)
 
-This projects implements an item-based recommender using HDBSCAN clustering. Product data was gotten from [Jumia](https://www.jumia.com.ng) was used to fit (train) the cluster model.
+This projects implements an item-based recommender using HDBSCAN clustering. Product data, gotten from [Jumia](https://www.jumia.com.ng) was used to fit (train) the cluster model.
 
-Details on setup, usage and implementation are given in subsequent sections.
+Details on setup, usage and limitations are given in subsequent sections.
 HDBSCAN stands for Hierarchical Density-Based Spatial Clustering of Applications with Noise.
 
 ## Setup
@@ -12,7 +12,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the pro
 ```bash
 pip install -r requirements.txt
 ```
-There might be an error when installing the hdbscan library. If that happens, it could be downloaded through its GitHub page. After that, it could be installed by running the following:
+There might be an error when installing the hdbscan library. If that happens, it could be downloaded through its [GitHub page](https://github.com/scikit-learn-contrib/hdbscan). After that, it could be installed by running the following:
 
 ```bash
 pip install -r requirements.txt
@@ -74,7 +74,6 @@ http://localhost:5000/api/recommend?link=https://www.jumia.com.ng/style-addictio
         "product_rating": "3.7",
         "product_type": "Dresses"
     },
-    ...
     {
         "id": 6015,
         "image_link": "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/74/281415/1.jpg?9417",
@@ -100,7 +99,7 @@ There will also be an error message if the URL is not a valid Jumia link as seen
 }
 ```
 ## Limitations
-The trained relied on vectors from the names and categories
+The training of the model relied on vectors from the names and categories
 of the products. The dimensions of the vectors were then reduced drastically in order to save training time and memory.
 In addition, the data mined was relatively noisy with inconsistencies in product classifications and naming conventions.\
 These factors led to a relatively high amount of product vector points classified as noise or outlier values.

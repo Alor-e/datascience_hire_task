@@ -3,6 +3,7 @@ import gzip
 import hdbscan
 from sql_database import fetch_cluster_rows
 from api_gen_helpers import list_of_dict, page_scraper, pipeline
+import collections
 
 
 def load_zipped_pickle(filename):
@@ -22,14 +23,40 @@ def links_recommender(link):
     """
     page_tuple = page_scraper(link)
     array = pipeline(page_tuple)
+
     cluster_prediction = hdbscan.prediction.approximate_predict(
         clusterer, array)
+
+    cluster_list = clusterer.labels_.tolist()
+
+    indices = [i for i, x in enumerate(
+        cluster_list) if x == cluster_prediction[0][0]]
+
+    cluster_members = fetch_cluster_rows(indices)
+
     if cluster_prediction[0][0] != -1:
-        cluster_list = clusterer.labels_.tolist()
-        indices = [i for i, x in enumerate(
-            cluster_list) if x == cluster_prediction[0][0]]
-        cluster_members = fetch_cluster_rows(indices)
-        cluster_members_json = list_of_dict(cluster_members)
+        cluster_members_json = list_of_dict(cluster_members, page_tuple)
         return cluster_members_json
     else:
-        return{'status': 'No recommendations are available for the given link'}
+        cluster_members = [
+            item for item in cluster_members if item[4] == page_tuple[1]]
+        if cluster_members:
+            cluster_members_json = list_of_dict(cluster_members, page_tuple)
+            return cluster_members_json
+        else:
+            return{'status': 'No recommendations are available for the given link'}
+
+
+# a = page_scraper(
+#     'https://www.jumia.com.ng/dell-20-monitor-e2016hv-19.5-45794600.html')
+# array = pipeline(a)
+# cluster_prediction = hdbscan.prediction.membership_vector(
+#     clusterer, array).tolist()
+# cluster_list = clusterer.labels_.tolist()
+# indices = [i for i, x in enumerate(
+#     cluster_list) if x == -1]
+
+# for x in fetch_cluster_rows(indices):
+#     print(x, '\n')
+# counter = collections.Counter(cluster_list)
+# print(cluster_prediction)

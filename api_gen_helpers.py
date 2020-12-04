@@ -7,13 +7,14 @@ from product_info_scraper import user_agent
 import numpy as np
 
 
-def list_of_dict(list_of_tuples):
+def list_of_dict(list_of_tuples, page_tuple):
     """
     Converts a list of tuples to a list of dictionary types.
     """
     keys = ('id', 'product_link', 'product_name', 'product_brand',
             'product_type', 'product_rating', 'product_price', 'image_link')
-    list_of_dict = [dict(zip(keys, values)) for values in list_of_tuples]
+    list_of_dict = [dict(zip(keys, values))
+                    for values in list_of_tuples if values[2] != page_tuple[0]]
     return list_of_dict
 
 
