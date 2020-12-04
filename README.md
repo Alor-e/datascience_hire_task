@@ -12,7 +12,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the pro
 ```bash
 pip install -r requirements.txt
 ```
-There might be an error when installing the hdbscan library. If that happens, it could be downloaded through its GitHub page. After that, it could be installed by running the following:
+There might be an error when installing the hdbscan library. If that happens, it could be downloaded through its [GitHub page] (https://github.com/scikit-learn-contrib/hdbscan). After that, it could be installed by running the following:
 
 ```bash
 pip install -r requirements.txt
