@@ -16,7 +16,7 @@ clusterer = load_zipped_pickle('model.bin')
 
 def links_recommender(link):
     """
-    Accepts url links and passes it to various helper functionsto get a vector.
+    Accepts url links and passes it to various helper functions to get a vector.
     Passes the vector to a pretrained clusterer.
     Returns recommendations.
     """

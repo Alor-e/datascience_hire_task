@@ -21,10 +21,10 @@ def recommender_response():
         output = {'error': 'url not valid'}
     response = jsonify(output)
 
-    return response
-
     if phone_number:
         store_user_data(phone_number, link_url)
+
+    return response
 
 
 if __name__ == '__main__':
