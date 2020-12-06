@@ -59,7 +59,7 @@ Name| Description | Required | Example
 
 ### Request Example
 ```json
-http://localhost:5000/api/recommend?link=https://www.jumia.com.ng/style-addiction-mesh-sleeve-belted-skater-dress-red-59493603.html?phone=08123092414
+http://localhost:5000/api/recommend?link=https://www.jumia.com.ng/style-addiction-mesh-sleeve-belted-skater-dress-red-59493603.html&phone=08123092414
 ```
 ### Response Example
 ```json
