@@ -27,7 +27,7 @@ def pipeline_pickler(column_name):
     vectorized_text = vectorizer.fit(
         training_data[column_name].values.astype('U'))
     pickle.dump(vectorized_text, open(
-        f'{column_name}_vectorizer.bin', 'wb'), protocol=-1)
+        f'{column_name}_vectorizer.bin', 'wb'), protocol=4)
 
 
 def variance_selector_pickler(array_tuple):
@@ -38,7 +38,7 @@ def variance_selector_pickler(array_tuple):
     sel = VarianceThreshold(threshold=(.999 * (1 - .99999)))
     variance_selector = sel.fit(joined_array)
     pickle.dump(variance_selector, open(
-        'variance_threshold.bin', 'wb'), protocol=-1)
+        'variance_threshold.bin', 'wb'), protocol=4)
 
 
 name_array = pipeline('product_name')

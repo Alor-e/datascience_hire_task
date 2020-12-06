@@ -17,9 +17,9 @@ print(clusterer.labels_)
 print(clusterer.labels_.max())
 
 
-def save_zipped_pickle(obj, filename, protocol=-1):
+def save_zipped_pickle(obj, filename, protocol=4):
     with gzip.open(filename, 'wb') as f:
         pickle.dump(obj, f, protocol)
 
 
-save_zipped_pickle(model, "model.bin", -1)
+save_zipped_pickle(model, "model.bin")
